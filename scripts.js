@@ -1,7 +1,8 @@
 var scene = new THREE.Scene();
 
-var camera = new THREE.PerspectiveCamera( 30, window.innerWidth/window.innerHeight, 0.1, 100 );
-camera.position.z = 30;
+var camera = new THREE.PerspectiveCamera( 30, window.innerWidth/window.innerHeight, 0.1, 400 );
+camera.position.z = 250;
+camera.position.y = 0;
 //camera.translateX( 1)
 //camera.translateZ( -200 )
 //camera.translateY( -400)
@@ -24,13 +25,13 @@ controls.target.set( 0, 0, 15 );
 controls.dampingFactor = 0.25;
 //controls.enableZoom = true;
 //controls.autoRotate = false;
-//controls.maxZoom = 0.1;
+//controls.maxZoom = 500;
 //controls.minZoom = 0.1;
 
 //controls.maxAzimuthAngle = 0.2
 
-//controls.maxPolarAngle = 1.9
-//controls.minDistance = 70;
+controls.maxPolarAngle = 1.9
+controls.minDistance = 200;
 
 var keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
 keyLight.position.set(-100, 0, 100);
@@ -39,7 +40,7 @@ var fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'
 fillLight.position.set(100, 0, 100);
 
 var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-backLight.position.set(100, 0, -100).normalize();
+backLight.position.set(0, 0, -100).normalize();
 
 let light4 = new THREE.PointLight(0xc4c4c4,3);
         light4.position.set(-500,300,500);
@@ -53,13 +54,14 @@ scene.add(backLight);
 var objLoader = new THREE.OBJLoader();
 
 objLoader.setPath('./assets/');
-objLoader.load('Virgencita--.obj', function (object) {
+objLoader.load('vp2.obj', function (object) {
 
     scene.add(object);
-    camera.lookAt(object.position)
+    //camera.lookAt(object.position)
     console.log(object.position)
+    //console.log(controls)
     object.position.x = 0;
-    object.position.y = -10;
+    object.position.y = -30;
     object.position.z = 0;
     /* object.position.y -= 60;
     object.position.z = -100; */
