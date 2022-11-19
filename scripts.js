@@ -1,3 +1,4 @@
+var nombreArchivo ="vp2.obj";
 var scene = new THREE.Scene();
 
 var camera = new THREE.PerspectiveCamera( 30, window.innerWidth/window.innerHeight, 0.1, 400 );
@@ -54,7 +55,7 @@ scene.add(backLight);
 var objLoader = new THREE.OBJLoader();
 
 objLoader.setPath('./assets/');
-objLoader.load('vp2.obj', function (object) {
+objLoader.load(nombreArchivo, function (object) {
 
     scene.add(object);
     //camera.lookAt(object.position)
