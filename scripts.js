@@ -1,4 +1,4 @@
-var nombreArchivo ="vp4.obj";
+var nombreArchivo ="vp5.obj";
 var scene = new THREE.Scene();
 
 var camera = new THREE.PerspectiveCamera( 30, window.innerWidth/window.innerHeight, 0.1, 400 );
